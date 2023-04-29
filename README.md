@@ -18,9 +18,20 @@ We also used [Jest](www.npmjs.com/package/jest) for testing!
 <br>
 <br>
 
+## User Story
+
+<code>
+<br>
+AS a freelance web developer <br>
+<br>
+I WANT to generate a simple logo for my projects<br>
+<br>
+SO THAT I don't have to pay a graphic designer<br>
+<br>
+</code>
+
 ## Acceptance Criteria
 <br>
-
 <code>
 GIVEN a command-line application that accepts user input<br>
 <br>
