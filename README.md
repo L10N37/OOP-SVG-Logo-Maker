@@ -14,12 +14,11 @@ Dependencies required: <br>
 [Enquirer](https://www.npmjs.com/package/inquirer) <br>
 <br>
 
-We also used [Jest](www.npmjs.com/package/jest) for testing!
+We also used [Jest](https://www.npmjs.com/package/jest) for testing!
 <br>
 <br>
 
 ## User Story
-
 <code>
 <br>
 AS a freelance web developer <br>
@@ -29,7 +28,6 @@ I WANT to generate a simple logo for my projects<br>
 SO THAT I don't have to pay a graphic designer<br>
 <br>
 </code>
-
 ## Acceptance Criteria
 <br>
 <code>
