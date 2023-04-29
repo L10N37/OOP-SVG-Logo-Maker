@@ -1,4 +1,4 @@
-# Object-oriented Programming Challenge: SVG Logo Maker
+# Object-Oriented Programming Challenge: SVG Logo Maker
 
 <br>
 This is an SVG Logo Maker created for the Monash module 10 challenge! 
