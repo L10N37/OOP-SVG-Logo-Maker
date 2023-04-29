@@ -16,6 +16,14 @@ Dependencies required: <br>
 
 We also used [Jest](https://www.npmjs.com/package/jest) for testing!<br>
 <br>
+
+Finally, because the main functionality of the project is using ES6 modules for imports and exports and jest is only compatible with common JS 
+imports and exports, the project additionally uses [babel-jest](https://www.npmjs.com/package/babel-jest) to handle the import / export conversions. 
+There are a couple of extra config files that have being created for use by babel-jest. These are, 'jest.config.cjs' and '.babelrc'.
+<br>
+
+
+<br>
 <br>
 
 ## User Story
