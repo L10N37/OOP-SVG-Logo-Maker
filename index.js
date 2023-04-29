@@ -1,3 +1,4 @@
+import { coloursArray } from './coloursArray.js';
 import fs from 'fs';
 import path from 'path';
 const __dirname = path.resolve();
@@ -7,7 +8,6 @@ import { Triangle, Circle, Square } from './lib/shapes.js';
 const canvasWidth = 300;
 const canvasHeight = 200;
 
-// inquirer prompt section
 inquirer
   .prompt([
     {
@@ -19,7 +19,14 @@ inquirer
     {
       type: 'input',
       name: 'textColor',
-      message: 'Enter the text color (hexadecimal or keyword):',
+      message: 'Enter the text color (hexadecimal (i.e.#CD5C5C) or keyword (refer to coloursArray.js)):',
+      validate: (input) => {
+        // check if the input is a valid CSS color name
+        const isColorName = coloursArray.includes(input.toLowerCase());
+        // check if the input is a valid hex color code
+        const isHexCode = /^#[0-9A-F]{6}$/i.test(input);
+        return isColorName || isHexCode;
+      },
     },
     {
       type: 'list',
@@ -33,6 +40,7 @@ inquirer
       message: 'Enter the shape color (hexadecimal or keyword):',
     },
   ])
+
   .then((answers) => {
     let shape;
     const text = {
