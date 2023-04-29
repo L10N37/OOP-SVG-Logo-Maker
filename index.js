@@ -1,16 +1,93 @@
-// Import shape classes
-const { Square, Circle, Triangle } = require('./shapes.js');
+import fs from 'fs';
+import path from 'path';
+const __dirname = path.resolve();
+import inquirer from 'inquirer';
+import { Triangle, Circle, Square } from './lib/shapes.js';
 
-const mySquare = new Square(10, 10, 50, 'red');
-const myCircle = new Circle(100, 100, 30, 'blue');
-const myTriangle = new Triangle(50, 50, 100, 50, 75, 100, 'green');
+const canvasWidth = 300;
+const canvasHeight = 200;
 
-const svg = `
-  <svg width="200" height="200">
-    ${mySquare.draw()}
-    ${myCircle.draw()}
-    ${myTriangle.draw()}
-  </svg>
-`;
+// inquirer prompt section
+inquirer
+  .prompt([
+    {
+      type: 'input',
+      name: 'text',
+      message: 'Enter up to three characters:',
+      validate: (input) => input.length <= 3,
+    },
+    {
+      type: 'input',
+      name: 'textColor',
+      message: 'Enter the text color (hexadecimal or keyword):',
+    },
+    {
+      type: 'list',
+      name: 'shape',
+      message: 'Choose a shape:',
+      choices: ['Circle', 'Triangle', 'Square'],
+    },
+    {
+      type: 'input',
+      name: 'shapeColor',
+      message: 'Enter the shape color (hexadecimal or keyword):',
+    },
+  ])
+  .then((answers) => {
+    let shape;
+    const text = {
+      _attributes: {
+        x: canvasWidth / 2,
+        y: canvasHeight / 1.35, // adjust height of the text, higher # = raise text, this is only for triangle! see 'switch'
+        'text-anchor': 'middle',
+        fill: answers.textColor,
+      },
+      // convert text input to uppercase
+      _text: answers.text.toUpperCase(), 
+    
+      render: function() { 
+        // font size of text input is adjustable below
+        return ` 
+          <text x="${this._attributes.x}" y="${this._attributes.y}" 
+                text-anchor="${this._attributes['text-anchor']}"
+                fill="${this._attributes.fill}" font-size="${fontSize}">
+            ${this._text}
+          </text>
+        `;
+      },
+    };
+    // adjust shape dimensions here, this is where the 'new' shape is created dependent on selection
+    let fontSize;
+    switch (answers.shape) {
+      case 'Circle':
+        const circleRadius = Math.min(canvasWidth, canvasHeight) * 0.45;        // increase radius
+        shape = new Circle(canvasWidth / 2, canvasHeight / 2, circleRadius);
+        text._attributes.y = canvasHeight / 1.65;                               // custom text height to suit shape
+        fontSize = 58;                                                          // custom font size to suit shape
+        break;
+        case 'Triangle':                                   
+          const triangleHeight = Math.min(canvasWidth, canvasHeight) * 1.1;     // increase the height
+          shape = new Triangle(canvasWidth / 2, canvasHeight / 2, triangleHeight);
+          fontSize = 52;
+          break;
+      case 'Square':
+        const squareSize = Math.min(canvasWidth, canvasHeight) * 0.8;           // percentage of area the box takes of canvas
+        shape = new Square(canvasWidth / 2, canvasHeight / 2, squareSize);
+        text._attributes.y = canvasHeight / 1.65;                               // custom text height to suit shape
+        fontSize = 60;                                                          // custom font size to suit shape
+        break;
+    }
 
-console.log(svg);
+    const svgData = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="${canvasWidth}" height="${canvasHeight}">
+        ${shape.render(answers.shapeColor)}
+        ${text.render()}
+      </svg>`;
+
+    fs.writeFileSync(`${__dirname}/logo.svg`, svgData.toString());
+
+    console.log('Generated logo.svg');
+  })
+  .catch((error) => {
+    console.error(error);
+  });

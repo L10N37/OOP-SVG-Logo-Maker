@@ -11,11 +11,10 @@ Dependencies required: <br>
 <br>
 
 [Node.js](https://www.nodejs.org/en) <br>
-[Enquirer](https://www.npmjs.com/package/inquirer) <br>
+[Inquirer](https://www.npmjs.com/package/inquirer) <br>
 <br>
 
 We also used [Jest](https://www.npmjs.com/package/jest) for testing!<br>
-I've also chosen to use [svg.js](https://www.svgjs.dev/docs/3.0/) to handle the manipulation and creation of SVG files.
 <br>
 <br>
 
