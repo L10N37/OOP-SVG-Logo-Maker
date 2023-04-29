@@ -28,6 +28,7 @@ I WANT to generate a simple logo for my projects<br>
 SO THAT I don't have to pay a graphic designer<br>
 <br>
 </code>
+
 ## Acceptance Criteria
 <br>
 <code>
