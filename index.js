@@ -19,7 +19,7 @@ inquirer
     {
       type: 'input',
       name: 'textColor',
-      message: 'Enter the text color (hexadecimal (i.e.#CD5C5C) or keyword (refer to coloursArray.js)):',
+      message: 'Enter the text color (hexadecimal, i.e.#CD5C5C) or keyword (refer to coloursArray.js)):',
       validate: (input) => {
         // check if the input is a valid CSS color name
         const isColorName = coloursArray.includes(input.toLowerCase());
