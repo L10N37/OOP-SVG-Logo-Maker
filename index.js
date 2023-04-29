@@ -46,7 +46,6 @@ inquirer
       _text: answers.text.toUpperCase(), 
     
       render: function() { 
-        // font size of text input is adjustable below
         return ` 
           <text x="${this._attributes.x}" y="${this._attributes.y}" 
                 text-anchor="${this._attributes['text-anchor']}"
@@ -68,7 +67,7 @@ inquirer
         case 'Triangle':                                   
           const triangleHeight = Math.min(canvasWidth, canvasHeight) * 1.1;     // increase the height
           shape = new Triangle(canvasWidth / 2, canvasHeight / 2, triangleHeight);
-          fontSize = 52;
+          fontSize = 52;                                                        // custom font size to suit shape
           break;
       case 'Square':
         const squareSize = Math.min(canvasWidth, canvasHeight) * 0.8;           // percentage of area the box takes of canvas
