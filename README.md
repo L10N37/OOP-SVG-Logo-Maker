@@ -84,4 +84,4 @@ THEN I am shown a 300x200 pixel image that matches the criteria I entered<br>
 <br>
 <br>
 
-[TBA](www.github.com/L10N37/)
+[SVG Logo Generator, How Do You Use It?](https://youtu.be/5CZbPmcF46o)
