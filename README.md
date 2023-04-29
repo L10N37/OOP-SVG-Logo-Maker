@@ -10,8 +10,8 @@ This application does not launch in a browser and instead uses a console line in
 Dependencies required: <br>
 <br>
 
-[Node.js](www.nodejs.org/en) <br>
-[Enquirer](www.npmjs.com/package/inquirer) <br>
+[Node.js](https://www.nodejs.org/en) <br>
+[Enquirer](https://www.npmjs.com/package/inquirer) <br>
 <br>
 
 We also used [Jest](www.npmjs.com/package/jest) for testing!
@@ -20,6 +20,7 @@ We also used [Jest](www.npmjs.com/package/jest) for testing!
 
 ## Acceptance Criteria
 <br>
+
 <code>
 GIVEN a command-line application that accepts user input<br>
 <br>
