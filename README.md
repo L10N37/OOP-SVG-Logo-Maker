@@ -39,7 +39,7 @@ SO THAT I don't have to pay a graphic designer<br>
 
 ## Acceptance Criteria
 <br>
-<code>
+```
 GIVEN a command-line application that accepts user input<br>
 <br>
 WHEN I am prompted for text <br>
@@ -67,7 +67,7 @@ AND the output text "Generated logo.svg" is printed in the command line<br>
 WHEN I open the `logo.svg` file in a browser<br>
 <br>
 THEN I am shown a 300x200 pixel image that matches the criteria I entered<br>
-</code>
+```
 <br>
 <br>
 
